@@ -1,3 +1,6 @@
+var dotEnv = require('dotenv').config();
+const request = require('request');
+
 function githubRequest(endpoint, callback) {
   var requestData = {
     url: `https://api.github.com${endpoint}`,
@@ -10,3 +13,5 @@ function githubRequest(endpoint, callback) {
   }
   request.get(requestData, callback);
 }
+
+module.exports = githubRequest;

@@ -1,20 +1,16 @@
 const request = require('request');
-var fs = require("fs");
-var dotEnv = require('dotenv').config();
+const downloadImageByURL = require("./downloadImageByURL");
+const getRepocontributors = require("./getRepocontributors");
+const githubRequest = require("./githubRequest");
 
+if (process.argv.length === 4) {
 
-
-
-
-function downloadImageByURL(url, path) {
-  request(url).pipe(fs.createWriteStream(path));
-}
-
-getRepocontributors(`${process.argv[2]}`, `${process.argv[3]}`, function(url){
+getRepocontributors(process.argv[2], process.argv[3], function(url){
   var filename = url.substring(url.lastIndexOf("/")+1);
-  console.log(filename);
-  downloadImageByURL(url, `./avatarLibrary/${filename}.png`);
+  downloadImageByURL(url, './avatarLibrary', `./avatarLibrary/${filename}.png`);
 });
 
-
+} else {
+  console.log("incorrect number of arguments")
+};
 
