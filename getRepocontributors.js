@@ -8,10 +8,15 @@ function getRepocontributors(repoOwner, repoName, callback) {
         console.log("error");
       } else {
         var data = JSON.parse(body);
-        data.forEach((avatar) =>  {
-          callback(avatar.avatar_url);
-      })
-      }
+        // console.log(data.message)
+        if (data.message === 'Bad credentials') {
+          throw "incorrect credentials in .env file";
+        } else {
+          data.forEach((avatar) =>  {
+            callback(avatar.avatar_url);
+          })
+        }
+    }
   });
 
 }

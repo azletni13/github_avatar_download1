@@ -1,3 +1,5 @@
 node_modules/
 avatarLibrary/
 .env
+tests/
+util.js

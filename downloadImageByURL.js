@@ -6,7 +6,7 @@ function downloadImageByURL(url, folder, path) {
     if (!err) {
       request(url).pipe(fs.createWriteStream(path));
     } else {
-      console.log("folder to store images to does not exist!");
+        throw "folder to store images to does not exist!";
     }
   })
 }
