@@ -1,9 +1,11 @@
 const request = require('request');
 var fs = require("fs");
+var dotEnv = require('dotenv').config();
 
 function getRepocontributors(repoOwner, repoName, callback) {
   githubRequest(`/repos/${repoOwner}/${repoName}/contributors`, function(err, response, body){
     var data = JSON.parse(body);
+    console.log(data)
     for (var avatarURL of data) {
       callback(data[avatarURL].avatar_url);
     }
@@ -15,7 +17,7 @@ function githubRequest(endpoint, callback) {
   var requestData = {
     url: `https://api.github.com${endpoint}`,
     auth: {
-      bearer: '16a11abae3636eeb8a6ff33a798351855149af61'
+      bearer: process.env.GITHUB_TOKEN
     },
     headers: {
       'User-Agent': "requests"
@@ -26,7 +28,6 @@ function githubRequest(endpoint, callback) {
 
 
 function downloadImageByURL(url, path) {
-  // fs.createWriteStream(path);
   request(url).pipe(fs.createWriteStream(path));
 }
 

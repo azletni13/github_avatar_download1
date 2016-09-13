@@ -1,0 +1,24 @@
+{
+  "name": "github_avatar_download",
+  "version": "1.0.0",
+  "description": "downloads the avatars of repo contributors ",
+  "main": "project_firstpart.js",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azletni13/github_avatar_download1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azletni13/github_avatar_download1/issues"
+  },
+  "homepage": "https://github.com/azletni13/github_avatar_download1#readme"
+}
