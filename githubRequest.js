@@ -10,9 +10,10 @@ function githubRequest(endpoint, callback) {
       throw ".env does not exist";
     } else {
 
+      //require dotenv module
       dotEnv = require('dotenv').config();
 
-      // do the request
+      // & then do the request
       var requestData = {
         url: `https://api.github.com${endpoint}`,
         auth: {
